@@ -2,11 +2,15 @@ var express = require('express');
 var router = express.Router();
 var {Product,validate}=require('../../models/productmodel')
 var valiadtor=require('../../middlewares/product_validate')
+var auth=require('../../middlewares/auth')
+var admin=require('../../middlewares/admin')
+
 
 
 //Get all Product
 
-router.get('/',async (req,res)=>{
+router.get('/',auth,admin,async (req,res)=>{
+    console.log(req.user)
     let page=Number( req.query.page? req.query.page:10);
     let per_Page=Number(req.query.per_Page? req.query.per_Page:2);
     let skip_page=(per_Page*(page-1))

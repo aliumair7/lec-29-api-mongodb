@@ -1,3 +1,4 @@
 {
-    "db":"mongodb://localhost:27017/lec27"
+    "db":"mongodb://localhost:27017/lec27",
+    "jwtPrivateKey":"privateKey"
 }
